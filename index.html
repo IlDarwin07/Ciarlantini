@@ -128,10 +128,13 @@
   .dentro h2{font-size:clamp(2.3rem,4.8vw,3.6rem);color:#fff}
   .dentro .kicker{color:#ffd9a8}
   .dentro p{max-width:32em;font-size:1.1rem}
-  .quote{margin:2rem 0 0;padding-left:1.2rem;border-left:3px solid #ffd9a8}
-  .quote p{font-family:var(--display);font-style:italic;font-size:1.5rem;line-height:1.3;color:#fff;margin:0}
-  .quote footer{all:unset;display:block;margin-top:.6rem;font-size:.9rem;color:#fde9e6}
+  .dentro h2 .it{color:#ffd9a8}
+  .facts{list-style:none;padding:0;margin:2.2rem 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .facts li{border-top:1px solid rgba(255,255,255,.45);padding-top:.9rem}
+  .facts b{display:block;font-family:var(--display);font-weight:500;font-size:2rem;line-height:1;color:#fff}
+  .facts span{display:block;margin-top:.5rem;font-size:.95rem;line-height:1.5}
   @media (max-width:860px){.dentro{grid-template-columns:1fr}}
+  @media (max-width:520px){.facts{grid-template-columns:1fr;gap:1rem}}
 
   /* visit */
   .visit{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem)}
@@ -260,12 +263,13 @@
       <img src="img/interior.jpg" alt="Inside Ciarlantini: a wooden floor, white stools at a high counter and the pastry case at the back" width="800" height="1066" loading="lazy">
       <div>
         <p class="kicker">Il bar</p>
-        <h2 id="dentro-title">Small, cosy, Italian</h2>
-        <p>A few stools at the window, a few tables, and on dry days some seating outside. Nothing fancy: good coffee, good pastries and a friendly face behind the counter.</p>
-        <blockquote class="quote">
-          <p>“Not trendy, not pretending to be anything it's not. Just good coffee, nice vibes, and a local haven in Woodquay.”</p>
-          <footer>A customer review on Google</footer>
-        </blockquote>
+        <h2 id="dentro-title">Your <span class="it">bar sotto casa</span>, in Galway</h2>
+        <p>Every Italian neighbourhood has one: the bar downstairs, where they know how you take your coffee and the cornetti are still warm. Ciarlantini is that bar for Woodquay. Stop for a minute at the counter, or stay a while with something sweet from the case.</p>
+        <ul class="facts">
+          <li><b>7:30</b><span>Open early every day, for a coffee before work.</span></li>
+          <li><b>Stay</b><span>Stools at the window, a few tables, and seats outside when the weather allows.</span></li>
+          <li><b>To go</b><span>Coffee in a cup and pastries in a box, for the office or for dessert at home.</span></li>
+        </ul>
       </div>
     </div>
   </section>

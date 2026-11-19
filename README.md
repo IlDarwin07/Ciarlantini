@@ -27,6 +27,6 @@ scarica-foto.ps1  lo script PowerShell usato dal .bat
 - Orari (tutti i giorni 7:30–18:00) e telefono (091 447 838) presi da Google Maps: da confermare.
 - Ripieni dei cannoli, dolci in vetrina e lista caffè vanno confermati dal locale; i prezzi non ci sono
   (c'è un commento nell'HTML dove aggiungerli).
-- La citazione nella sezione "The bar" è una recensione Google: chiedere al titolare se va bene usarla.
+- Sezione "The bar": confermare i posti fuori e le scatole di pasticceria da asporto.
 - Accessibilità: contrasti AA, skip link, focus visibile, testi alternativi
   su ogni foto, supporto a reduced motion e forced colors.

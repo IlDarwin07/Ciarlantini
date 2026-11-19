@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ciarlantini · Bar Italia | Italian coffee &amp; pastries, Woodquay, Galway</title>
+<meta name="description" content="Espresso, cannoli, tiramisù and cornetti. Ciarlantini is a small Italian bar in Woodquay, Galway. Open 7 days, 7:30 to 18:00.">
+<meta name="theme-color" content="#b3261e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosso:#b3261e;     /* the red of the shopfront */
+    --rosso-dk:#8e1c16;
+    --ardesia:#2b3439;   /* slate grey of the sign and window frames */
+    --ardesia-2:#3a454b;
+    --crema:#f7f2e9;
+    --crema-2:#efe6d6;
+    --pistacchio:#6f8a3a;
+    --oro:#d8b25c;
+    --ink:#1f2427;
+    --muted:#565c60;
+    --focus:#0a58ca;
+    --display:"Bodoni Moda", "Didot", Georgia, serif;
+    --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{margin:0;background:var(--crema);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+  img{display:block;max-width:100%;height:auto}
+  a{color:var(--rosso-dk);text-underline-offset:.2em}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+  .skip{position:absolute;left:1rem;top:-5rem;z-index:99;background:var(--ardesia);color:#fff;padding:.8rem 1.1rem;font-weight:700;border-radius:4px}
+  .skip:focus{top:1rem}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2rem)}
+  h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;margin:0;letter-spacing:-.01em}
+  .kicker{font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rosso-dk);margin:0 0 1rem}
+  .it{font-family:var(--display);font-style:italic;font-weight:500}
+
+  /* tricolore rule, a small nod to the sign over the door */
+  .tri{display:flex;height:5px}
+  .tri i{flex:1}
+  .tri i:nth-child(1){background:#2e7d4f}.tri i:nth-child(2){background:#fff}.tri i:nth-child(3){background:var(--rosso)}
+
+  /* header: an echo of the shop sign, slate band with letter-spaced name */
+  header{background:var(--ardesia);color:#fff}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:1rem}
+  .logo{color:#fff;text-decoration:none;display:flex;flex-direction:column;line-height:1}
+  .logo b{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:.22em}
+  .logo span{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--oro);margin-top:.35rem}
+  nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+  nav a{color:#fff;text-decoration:none;font-weight:500;padding:.4rem 0;border-bottom:2px solid transparent}
+  nav a:hover{border-color:var(--oro)}
+
+  /* hero */
+  .hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,6rem)}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .hero h1{font-size:clamp(2.8rem,6.6vw,5.4rem);color:var(--ardesia)}
+  .hero h1 .it{color:var(--rosso)}
+  .hero p.intro{font-size:1.18rem;color:var(--muted);max-width:30em;margin:1.4rem 0 2rem}
+  .btns{display:flex;gap:.8rem;flex-wrap:wrap}
+  .btn{display:inline-block;min-height:48px;padding:.8rem 1.35rem;border-radius:3px;font-weight:700;text-decoration:none;border:2px solid var(--rosso)}
+  .btn.solid{background:var(--rosso);color:#fff}
+  .btn.solid:hover{background:var(--rosso-dk);border-color:var(--rosso-dk)}
+  .btn.line{color:var(--rosso-dk)}
+  .btn.line:hover{background:var(--crema-2)}
+  .open{margin:1.6rem 0 0;font-weight:500;display:flex;gap:.55rem;align-items:center}
+  .open i{width:9px;height:9px;border-radius:50%;background:#999;display:inline-block}
+  .open.is-open i{background:#25804a}
+  .open.is-closed i{background:var(--rosso)}
+
+  .facade{position:relative;margin:0}
+  .facade img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;border-radius:2px}
+  .facade .cup{position:absolute;left:-2rem;bottom:-2.5rem;width:46%;border:7px solid var(--crema);aspect-ratio:1/1;object-fit:cover}
+  .facade figcaption{position:absolute;top:1rem;right:-.6rem;background:var(--ardesia);color:#fff;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .8rem}
+  @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.facade{margin-bottom:2.5rem}.facade .cup{left:.6rem}.facade figcaption{right:.6rem}}
+
+  /* sections */
+  section{padding:clamp(3.5rem,8vw,6.5rem) 0;scroll-margin-top:1rem}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem}
+  .head h2{font-size:clamp(2.3rem,4.8vw,3.6rem)}
+  .head p{max-width:30em;margin:0;color:var(--muted)}
+
+  /* il banco: coffee menu as an Italian bar price board, slate background */
+  #caffe{background:var(--ardesia);color:#e6e9ea}
+  #caffe .kicker{color:var(--oro)}
+  #caffe h2{color:#fff}
+  #caffe .head p{color:#c9cfd2}
+  .banco{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .board{list-style:none;padding:0;margin:0}
+  .board li{display:grid;grid-template-columns:auto 1fr auto;gap:.8rem;align-items:baseline;padding:.95rem 0;border-bottom:1px solid #4b575d}
+  .board li b{font-family:var(--display);font-size:1.45rem;font-weight:500;color:#fff}
+  .board li i{border-bottom:1px dotted #6c787e;transform:translateY(-.3rem)}
+  .board li span{color:#c9cfd2;font-size:.95rem;text-align:right}
+  .banco-photo img{width:100%;aspect-ratio:4/3.4;object-fit:cover;border-radius:2px}
+  .banco-photo p{margin:1rem 0 0;color:#c9cfd2;font-size:.98rem}
+  @media (max-width:860px){.banco{grid-template-columns:1fr}}
+
+  /* pasticceria */
+  #dolci h2{color:var(--ardesia)}
+  #dolci h2 .it{color:var(--rosso)}
+  .dolci{display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem}
+  .dolce{margin:0}
+  .dolce img{width:100%;object-fit:cover;border-radius:2px;background:var(--crema-2)}
+  .dolce figcaption{margin-top:.9rem;border-top:2px solid var(--ardesia);padding-top:.7rem}
+  .dolce h3{font-size:1.65rem;color:var(--ardesia)}
+  .dolce p{margin:.3rem 0 0;color:var(--muted);font-size:.98rem}
+  .p1{grid-column:span 5}.p1 img{aspect-ratio:4/5}
+  .p2{grid-column:span 4;margin-top:4rem}.p2 img{aspect-ratio:3/3.6}
+  .p3{grid-column:span 3;margin-top:8rem}.p3 img{aspect-ratio:3/4.2}
+  @media (max-width:860px){.p1,.p2,.p3{grid-column:span 12;margin-top:0}.p2,.p3{grid-column:span 6}}
+  @media (max-width:520px){.p2,.p3{grid-column:span 12}}
+
+  .vetrina{display:grid;grid-template-columns:1.2fr .8fr;gap:1.4rem;margin-top:clamp(3rem,6vw,5rem);align-items:center;background:var(--crema-2);padding:clamp(1.2rem,3vw,2rem)}
+  .vetrina img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:2px}
+  .vetrina h3{font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--ardesia)}
+  .vetrina p{color:var(--muted);margin:.8rem 0 0}
+  .vetrina strong{color:var(--rosso-dk)}
+  @media (max-width:860px){.vetrina{grid-template-columns:1fr}}
+
+  /* inside */
+  #dentro{background:var(--rosso);color:#fde9e6}
+  .dentro{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .dentro img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px}
+  .dentro h2{font-size:clamp(2.3rem,4.8vw,3.6rem);color:#fff}
+  .dentro .kicker{color:#ffd9a8}
+  .dentro p{max-width:32em;font-size:1.1rem}
+  .quote{margin:2rem 0 0;padding-left:1.2rem;border-left:3px solid #ffd9a8}
+  .quote p{font-family:var(--display);font-style:italic;font-size:1.5rem;line-height:1.3;color:#fff;margin:0}
+  .quote footer{all:unset;display:block;margin-top:.6rem;font-size:.9rem;color:#fde9e6}
+  @media (max-width:860px){.dentro{grid-template-columns:1fr}}
+
+  /* visit */
+  .visit{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem)}
+  .visit h2{font-size:clamp(2.3rem,4.8vw,3.6rem);color:var(--ardesia);margin-bottom:1.5rem}
+  .visit-photo img{width:100%;aspect-ratio:4/3.2;object-fit:cover;border-radius:2px}
+  .visit-photo p{margin:.8rem 0 0;color:var(--muted);font-size:.95rem}
+  table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+  th,td{text-align:left;padding:.6rem 0;border-bottom:1px solid #ddd2bf}
+  th{font-weight:500}
+  td{text-align:right;color:var(--muted)}
+  tr.today th,tr.today td{color:var(--rosso-dk);font-weight:700}
+  address{font-style:normal;margin:1.8rem 0 1.4rem;font-size:1.1rem}
+  @media (max-width:860px){.visit{grid-template-columns:1fr}}
+
+  body > footer{background:var(--ardesia);color:#c9cfd2;padding:2.4rem 0;font-size:.95rem}
+  body > footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  body > footer a{color:#fff}
+
+  @media (forced-colors:active){.btn{border:2px solid ButtonText}.open i{forced-color-adjust:none}.tri{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#main"><b>CIARLANTINI</b><span>Bar Italia · Galway</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#caffe">Coffee</a></li>
+        <li><a href="#dolci">Pastries</a></li>
+        <li><a href="#dentro">The bar</a></li>
+        <li><a href="#visit">Find us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="tri" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<main id="main" tabindex="-1">
+
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Woodquay · Galway</p>
+        <h1 id="title">An espresso and a <span class="it">cannolo</span>, the Italian way</h1>
+        <p class="intro">Ciarlantini is a small Italian bar on Daly's Place. Proper coffee at the counter, a glass case of cannoli, cornetti and tiramisù, and the red front you can't miss on the way into town.</p>
+        <div class="btns">
+          <a class="btn solid" href="#dolci">See the pastries</a>
+          <a class="btn line" href="#visit">Opening hours</a>
+        </div>
+        <p class="open" id="open" aria-live="polite"><i aria-hidden="true"></i><span id="open-text">Open every day, 7:30–18:00</span></p>
+      </div>
+
+      <figure class="facade">
+        <img src="img/shopfront.jpg" alt="The Ciarlantini shopfront on a sunny day: red walls, a slate-grey sign with the name in white letters, and stools in the window" width="900" height="1125">
+        <img class="cup" src="img/coffee-cornetto.jpg" alt="A cappuccino and a mocha with chocolate drizzle on a table, with a pain au chocolat on a tray behind" width="500" height="500" loading="lazy">
+        <figcaption>Open 7 days</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="caffe" aria-labelledby="caffe-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="kicker">Al banco</p>
+          <h2 id="caffe-title">Coffee</h2>
+        </div>
+        <p>In Italy, the bar is where the day starts: a quick espresso standing at the counter, or a cappuccino and a cornetto if there's time. Here it's the same, just in Woodquay.</p>
+      </div>
+      <div class="banco">
+        <!-- Add prices in the <span>s if wanted, e.g. <span>€2.50</span> -->
+        <ul class="board">
+          <li><b>Espresso</b><i aria-hidden="true"></i><span>short and strong</span></li>
+          <li><b>Macchiato</b><i aria-hidden="true"></i><span>espresso, a spot of foam</span></li>
+          <li><b>Cappuccino</b><i aria-hidden="true"></i><span>the morning classic</span></li>
+          <li><b>Americano</b><i aria-hidden="true"></i><span>long and smooth</span></li>
+          <li><b>Latte</b><i aria-hidden="true"></i><span>hot or iced, oat milk too</span></li>
+          <li><b>Mocha</b><i aria-hidden="true"></i><span>with chocolate</span></li>
+        </ul>
+        <div class="banco-photo">
+          <img src="img/coffee-cornetto.jpg" alt="Two coffees on blue saucers, one topped with chocolate stripes, next to a tray with a pain au chocolat" width="900" height="760" loading="lazy" style="object-position:center 60%">
+          <p>To drink at the counter, at a table, or to take away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dolci" aria-labelledby="dolci-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="kicker">La pasticceria</p>
+          <h2 id="dolci-title">Italian <span class="it">pastries</span></h2>
+        </div>
+        <p>The glass case is the reason most people come back. Crisp cannoli, tiramisù, cornetti and cakes, the kind you'd find in any pasticceria back home.</p>
+      </div>
+      <div class="dolci">
+        <figure class="dolce p1">
+          <img src="img/cannoli.jpg" alt="Cannoli piled on glass stands in the counter, with crisp shells and cream-filled ends" width="900" height="1125" loading="lazy">
+          <figcaption><h3>Cannoli</h3><p>Crunchy shells with a creamy filling. Ask at the counter which ones are in today.</p></figcaption>
+        </figure>
+        <figure class="dolce p2">
+          <img src="img/tiramisu.jpg" alt="A slice of tiramisù dusted with cocoa, with a fork on the plate" width="800" height="960" loading="lazy">
+          <figcaption><h3>Tiramisù</h3><p>Coffee, mascarpone and cocoa. You're in an Italian bar, it would be rude not to.</p></figcaption>
+        </figure>
+        <figure class="dolce p3">
+          <img src="img/cakes.jpg" alt="A tall glass cake display with whole cheesecakes and berry tarts on several shelves" width="700" height="980" loading="lazy">
+          <figcaption><h3>Cakes &amp; tarts</h3><p>Cheesecakes and fruit tarts by the slice.</p></figcaption>
+        </figure>
+      </div>
+
+      <div class="vetrina">
+        <img src="img/pastry-counter.jpg" alt="The pastry counter full of trays: cornetti, sfogliatelle-style pastries and small Italian sweets" width="1000" height="625" loading="lazy">
+        <div>
+          <h3>And the rest of the case</h3>
+          <p>Cornetti in the morning, little pastries for the afternoon, and plenty to take away in a box. What's on the trays changes, so <strong>come and have a look</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dentro" aria-labelledby="dentro-title">
+    <div class="wrap dentro">
+      <img src="img/interior.jpg" alt="Inside Ciarlantini: a wooden floor, white stools at a high counter and the pastry case at the back" width="800" height="1066" loading="lazy">
+      <div>
+        <p class="kicker">Il bar</p>
+        <h2 id="dentro-title">Small, cosy, Italian</h2>
+        <p>A few stools at the window, a few tables, and on dry days some seating outside. Nothing fancy: good coffee, good pastries and a friendly face behind the counter.</p>
+        <blockquote class="quote">
+          <p>“Not trendy, not pretending to be anything it's not. Just good coffee, nice vibes, and a local haven in Woodquay.”</p>
+          <footer>A customer review on Google</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" aria-labelledby="visit-title">
+    <div class="wrap visit">
+      <div class="visit-photo">
+        <img src="img/street.jpg" alt="Daly's Place in Woodquay: the red Ciarlantini building on the corner of a street of older stone houses" width="1200" height="960" loading="lazy" style="object-position:center 45%">
+        <p>Look for the red building on Daly's Place, a couple of minutes' walk from Eyre Square.</p>
+      </div>
+      <div>
+        <h2 id="visit-title">Find us</h2>
+        <table>
+          <caption class="sr-only">Opening hours</caption>
+          <tbody id="hours">
+            <tr data-d="1"><th scope="row">Monday</th><td>7:30–18:00</td></tr>
+            <tr data-d="2"><th scope="row">Tuesday</th><td>7:30–18:00</td></tr>
+            <tr data-d="3"><th scope="row">Wednesday</th><td>7:30–18:00</td></tr>
+            <tr data-d="4"><th scope="row">Thursday</th><td>7:30–18:00</td></tr>
+            <tr data-d="5"><th scope="row">Friday</th><td>7:30–18:00</td></tr>
+            <tr data-d="6"><th scope="row">Saturday</th><td>7:30–18:00</td></tr>
+            <tr data-d="0"><th scope="row">Sunday</th><td>7:30–18:00</td></tr>
+          </tbody>
+        </table>
+        <address>7 Daly's Place, Woodquay<br>Galway H91 NTX0<br><a href="tel:+35391447838">091 447 838</a></address>
+        <div class="btns">
+          <a class="btn solid" href="https://www.google.com/maps/dir/?api=1&amp;destination=53.2751829,-9.052759" target="_blank" rel="noopener">Directions<span class="sr-only"> (opens Google Maps in a new tab)</span></a>
+          <a class="btn line" href="tel:+35391447838">Call us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Ciarlantini · Bar Italia · 7 Daly's Place, Woodquay, Galway</p>
+    <p><a href="https://maps.app.goo.gl/AnWdJFGL3mChHYor7" target="_blank" rel="noopener">Google Maps<span class="sr-only"> (opens in a new tab)</span></a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var O=450, C=1080, H={0:[O,C],1:[O,C],2:[O,C],3:[O,C],4:[O,C],5:[O,C],6:[O,C]};
+  function t(m){return Math.floor(m/60)+":"+String(m%60).padStart(2,"0");}
+  try{
+    var p={};new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Dublin",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});
+    var d=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday), now=(+p.hour%24)*60+(+p.minute);
+    var row=document.querySelector('#hours tr[data-d="'+d+'"]'); if(row){row.classList.add("today");row.querySelector("th").insertAdjacentHTML("beforeend",' <span class="sr-only">(today)</span>');}
+    var el=document.getElementById("open"), tx=document.getElementById("open-text");
+    if(now>=H[d][0]&&now<H[d][1]){el.classList.add("is-open");tx.textContent="Open now, until "+t(H[d][1]);}
+    else{var n=now<H[d][0]?d:(d+1)%7;el.classList.add("is-closed");tx.textContent="Closed now · opens "+(n===d?"today":"tomorrow")+" at "+t(H[n][0]);}
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
